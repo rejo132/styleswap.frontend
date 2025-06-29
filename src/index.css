@@ -1,0 +1,60 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --toast-bg: #FFFFFF;
+  --toast-text: #111827;
+  --bg-light: linear-gradient(135deg, #ff6f91 0%, #c86dd7 50%, #7b68ee 100%);
+  --bg-dark: linear-gradient(135deg, #2a0845 0%, #6441a5 50%, #3b0764 100%);
+}
+
+html, body {
+  @apply min-h-screen font-poppins transition-colors duration-300;
+}
+
+.bg-background {
+  background: var(--bg-light);
+  background-size: 200% 200%;
+  animation: gradientShift 15s ease infinite;
+}
+
+.bg-background-dark {
+  background: var(--bg-dark);
+  background-size: 200% 200%;
+  animation: gradientShift 15s ease infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bg-background, .bg-background-dark {
+    animation: none;
+    background: var(--bg-light);
+  }
+  .bg-background-dark {
+    background: var(--bg-dark);
+  }
+}
+
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.card {
+  @apply bg-white/90 dark:bg-gray-800/90 border border-gray-300 dark:border-gray-600 rounded-lg p-4 shadow-md hover:shadow-lg transition-all duration-200 backdrop-blur-sm;
+}
+
+.button {
+  @apply px-4 py-2 rounded-md font-medium text-white focus:outline-none focus:ring-2 focus:ring-offset-2 transition-colors duration-200;
+}
+
+.error {
+  @apply text-red-500 dark:text-red-400 text-sm mt-1;
+}
